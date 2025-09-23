@@ -5,6 +5,18 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
+//🔹 Terminal Operations
+//
+//Examples: forEach, reduce, collect, count, findFirst, anyMatch
+//
+//They produce a result or a side-effect (not another stream).
+//
+//They end the stream pipeline (stream can’t be reused after).
+//
+//Without a terminal operation, nothing happens (lazy evaluation).
+
+
 public class TerminalOperations {
 
     public static void main(String[] args) {
