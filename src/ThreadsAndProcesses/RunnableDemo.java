@@ -4,6 +4,11 @@ package ThreadsAndProcesses;
  * Two threads cooking soup
  */
 
+
+//diffrence between thread and runnable is pretty basic
+    //instead of -> extends thread , use -> implements Runnable
+    //instead of -> new ChefOlivia2 , use -> new Thread(new ChefOlivia2())
+
 class ChefOlivia2 implements Runnable {
     public void run() {
         System.out.println("Olivia started & waiting for sausage to thaw...");
@@ -17,7 +22,7 @@ class ChefOlivia2 implements Runnable {
 }
 
 public class RunnableDemo {
-    public static void main(String args[]) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Barron started & requesting Olivia's help.");
         Thread olivia = new Thread(new ChefOlivia2());
 
