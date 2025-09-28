@@ -13,7 +13,7 @@ class VegetableChopper extends Thread{
         this.setName(name);
     }
 
-    public void run() {
+    public void run() {   //overwrite the run method in the thread interface
         while(chopping) {
             System.out.println(this.getName() + " chopped a vegetable!");
             vegetable_count++;
