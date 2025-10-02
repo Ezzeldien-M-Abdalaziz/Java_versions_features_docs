@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Iterators {
 
@@ -68,12 +71,31 @@ public class Iterators {
 //        }
 
         //super clean way java 8+
-        rooms.removeIf(Room::isPetFriendly);
+//        rooms.removeIf(Room::isPetFriendly);
+//
+//        rooms.stream().forEach(r -> System.out.println(r.getName()));
 
-        rooms.stream().forEach(r -> System.out.println(r.getName()));
 
+        System.out.println("--------------------------------------------------------");
+        //------------------------------------------------------------------------//
 
+        // streams and lambda
 
+//way one
+        rooms.stream()
+                .filter(Room::isPetFriendly)
+                .forEach(room -> System.out.println(room.getName()));
+
+//way two
+        Collection<Room> petFriendlyRooms = rooms.stream()
+                .filter(Room::isPetFriendly)
+                .collect(Collectors.toList());
+        petFriendlyRooms.forEach(room -> System.out.println(room.getName()));
+
+// way three
+        petFriendlyRooms.stream()
+                .map(r -> r.getName())
+                .forEach(System.out::println);
 
 
 
